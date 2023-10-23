@@ -1,0 +1,18 @@
+body {
+	font-family: "Open Sans";
+}
+
+#main {
+	margin: 10px 20px;
+}
+
+.hovered {
+	opacity: 1;
+	fill: antiquewhite;
+}
+
+.selected {
+	opacity: 1;
+	stroke: black;
+	stroke-width: 1px;
+}

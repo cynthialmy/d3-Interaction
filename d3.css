@@ -1,0 +1,104 @@
+.line {
+	fill: none;
+	stroke: #ffab00;
+	stroke-width: 3;
+}
+
+.overlay {
+	fill: none;
+	pointer-events: all;
+}
+
+/* Style the dots by assigning a fill and stroke */
+.dot {
+	fill: #ffab00;
+	stroke: #fff;
+}
+
+.focus circle {
+	fill: none;
+	stroke: steelblue;
+}
+
+.d3-tip {
+	line-height: 1;
+	padding: 12px;
+	background: rgba(43, 43, 43, 0.8);
+	color: #fff;
+	border-radius: 2px;
+	font-size: 20px;
+}
+
+/* Style northward tooltips specifically */
+.d3-tip.n:after {
+	margin: -10px 0 0 0;
+	top: 100%;
+	left: 0;
+}
+
+#t {
+	display: table;
+}
+
+#t-Year {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#slider-year {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.counties {
+	fill: none;
+	stroke: rgb(90, 88, 88);
+	stroke-linejoin: round;
+}
+.states {
+	fill: none;
+	stroke: rgb(90, 88, 88);
+	stroke-linejoin: round;
+}
+/* define CSS rules here */
+.body {
+	background-color: #ffffff;
+	font: 11px sans-serif;
+}
+
+.legend {
+	left: 20px;
+	position: absolute;
+	top: 30px;
+}
+
+.tooltip {
+	background: lightsteelblue;
+	border: 0;
+	border-radius: 3px;
+	font: 12px sans-serif;
+	height: auto;
+	padding: 5px;
+	pointer-events: none;
+	position: absolute;
+	text-align: left;
+	width: auto;
+}
+body {
+	font-family: "Open Sans";
+}
+
+#main {
+	margin: 10px 20px;
+}
+
+.hovered {
+	opacity: 1;
+	fill: antiquewhite;
+}
+
+.selected {
+	opacity: 1;
+	stroke: black;
+	stroke-width: 1px;
+}

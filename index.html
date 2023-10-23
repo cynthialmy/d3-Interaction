@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script type="text/javascript" src="d3/d3.v3.js"></script>
+
+    <title>D3 Charts for State Crime Data</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="icon" type="image/ico" href="http://www.cc.gatech.edu/~stasko/7450/favicon.ico">
+    <!-- import required libraries -->
+    <script type="text/javascript" src="./lib/d3.v5.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v6.min.js"></script>
+    <script type="text/javascript" src="./lib/d3-dsv.min.js"></script>
+    <script type="text/javascript" src="./lib/d3-geo-projection.v2.min.js"></script>
+    <script type="text/javascript" src="./lib/d3-legend.min.js"></script>
+    <script type="text/javascript" src="./lib/d3-tip.min.js"></script>
+    <script type="text/javascript" src="./lib/topojson.v2.min.js"></script>
+    <script type="text/javascript" src="./lib/d3-simple-slider.min.js"></script>
+
+    <link rel="stylesheet" href="d3.css" />
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+                    <h1>D3 Charts for Crime Data</h1>
+                    <div class="btn-group btn-group-md" role="group" aria-label="...">
+                        <a href="index.html" class="btn btn-default" role="button">Scatter-Bar and Line-Bar</a>
+                        <a href="choropleth.html" class="btn btn-default" role="button">Extra: Choropleth</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <label for="crimeDropdown">Select Crime Type: </label>
+    <select name="crimeDropdown" id="crimeDropdown">
+    </select>
+
+    <script>
+        // define margin and dimensions for svg
+        var margin = { top: 50, right: 50, bottom: 50, left: 50 },
+            //   , width = window.innerWidth - margin.left - margin.right // Use the window's width
+            //   , height = window.innerHeight - margin.top - margin.bottom; // Use the window's height
+            // width = innerWidth - margin.left - margin.right,
+            // height = innerHeight - margin.top - margin.bottom;
+            width = 960, height = 480;
+
+        // create color scale
+        var colorScheme = d3.schemeOranges[9];
+        var color = d3.scaleThreshold().domain(d3.range(1, 9)).range(colorScheme);
+
+        var dropdownOptions = ['Property', 'Violent'];
+        var select = d3.select("select");
+        select
+            .selectAll("options")
+            .data(dropdownOptions.sort())
+            .enter()
+            .append("option")
+            .attr("value", d => d)
+            .html(d => d);
+    </script>
+
+    <div id="scatter"></div>
+    <div id="bar-scatter"></div>
+    <div id="line"></div>
+    <div id="bar"></div>
+
+    <script src="chart.js"></script>
+
+    <hr>
+    <div align="center">
+        <center>
+            <p class="sig"><a href="https://github.com/cynthialmy">Mengyuan Li (Cynthia)<br>mli461@gatech.edu</a>
+            <p class="sig"><a href="http://www.cc.gatech.edu/">Copyright © College
+                    of Computing<br>Any unauthorized reproduction or use is strictly
+                    prohibited.</a>
+            </p>
+        </center>
+    </div>
+
+</body>
+
+</html>
