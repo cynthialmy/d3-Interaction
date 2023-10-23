@@ -10,3 +10,7 @@
     Add a dropdown menu for at least one of these three charts and use it to reconfigure the chart. For example, a menu might allow the user to change the attribute presented on an axis in a chart, which variable color is mapped to, etc.  
 
 # Demo
+
+https://cynthialmy.github.io/d3-Interaction/
+
+![chart](chart-1.png)
