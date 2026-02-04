@@ -152,13 +152,12 @@ header .btn.active {
 .controls-container {
   max-width: 1400px;
   margin: 0 auto var(--space-xl) auto;
-  padding: 0 var(--space-lg);
+  padding: var(--space-lg);
   display: flex;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
   align-items: flex-start;
   flex-wrap: wrap;
   background: white;
-  padding: var(--space-lg);
   border-radius: 8px;
   box-shadow: var(--shadow-md);
 }
@@ -167,7 +166,21 @@ header .btn.active {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  flex: 0 0 auto;
+}
+
+.control-group:nth-child(1) {
   min-width: 200px;
+}
+
+.control-group:nth-child(2) {
+  min-width: 350px;
+  margin-right: var(--space-md);
+}
+
+.control-group:nth-child(3) {
+  min-width: 400px;
+  flex: 1 1 auto;
 }
 
 .control-group label {
@@ -183,7 +196,13 @@ header .btn.active {
   font-family: var(--font-body);
   font-weight: 600;
   color: var(--gray-800);
-  margin-left: var(--space-sm);
+  margin-top: var(--space-xs);
+  display: block;
+}
+
+#yearRangeSlider {
+  width: 300px;
+  display: block;
 }
 
 #yearRangeSlider svg .brush .selection {
@@ -223,8 +242,9 @@ header .btn.active {
 .state-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-sm);
-  max-width: 600px;
+  gap: var(--space-sm) var(--space-md);
+  max-width: 100%;
+  margin-top: var(--space-xs);
 }
 
 .state-filter-item {
