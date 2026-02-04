@@ -1,53 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script type="text/javascript" src="d3/d3.v3.js"></script>
-
-    <title>D3 Charts for State Crime Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Data Visualization - Choropleth Map</title>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="d3.css" />
     <link rel="icon" type="image/ico" href="http://www.cc.gatech.edu/~stasko/7450/favicon.ico">
+
     <!-- import required libraries -->
     <script type="text/javascript" src="./lib/d3.v5.min.js"></script>
-    <!-- <script type="text/javascript" src="https://d3js.org/d3.v6.min.js"></script> -->
     <script type="text/javascript" src="./lib/d3-dsv.min.js"></script>
     <script type="text/javascript" src="./lib/d3-geo-projection.v2.min.js"></script>
     <script type="text/javascript" src="./lib/d3-legend.min.js"></script>
     <script type="text/javascript" src="./lib/d3-tip.min.js"></script>
     <script type="text/javascript" src="./lib/topojson.v2.min.js"></script>
     <script type="text/javascript" src="./lib/d3-simple-slider.min.js"></script>
-
-    <link rel="stylesheet" href="d3.css" />
 </head>
 
 <body>
 
     <header>
         <div class="container">
-            <div class="row">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-10">
-                    <h1>D3 Charts for Crime Data</h1>
-                    <div class="btn-group btn-group-md" role="group" aria-label="...">
-                        <a href="index.html" class="btn btn-default" role="button">Scatter-Bar and Line-Bar</a>
-                        <a href="choropleth.html" class="btn btn-default" role="button">Extra: Choropleth</a>
-                    </div>
-                </div>
+            <h1>Crime Data Visualization</h1>
+            <div class="btn-group btn-group-md" role="group" aria-label="Navigation">
+                <a href="index.html" class="btn" role="button">Scatter-Bar and Line-Bar</a>
+                <a href="choropleth.html" class="btn active" role="button">Choropleth Map</a>
             </div>
         </div>
     </header>
 
-    <div id="t">
-        <p id="t-Year">Year</p>
-        <div id="slider-year"></div>
+    <div class="chart-section">
+        <div class="chart-wrapper">
+            <div id="t">
+                <p id="t-Year">Year</p>
+                <div id="slider-year"></div>
+            </div>
+            <div id="choropleth"></div>
+        </div>
     </div>
 
-    <div id="choropleth"></div>
     <script src="choropleth.js"></script>
 
 

@@ -1,18 +1,530 @@
-body {
-	font-family: "Open Sans";
+/* ============================================
+   DESIGN SYSTEM - Editorial Style
+   ============================================ */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+/* CSS Custom Properties - Color System */
+:root {
+  /* Neutral Base Colors */
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-300: #d4d4d4;
+  --gray-400: #a3a3a3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+  --gray-800: #262626;
+  --gray-900: #171717;
+
+  /* Violent Crime Colors */
+  --violent-primary: #8b1a1a;
+  --violent-secondary: #c92a2a;
+  --violent-accent: #e03131;
+  --violent-light: #ffc9c9;
+
+  /* Property Crime Colors */
+  --property-primary: #c2410c;
+  --property-secondary: #ea580c;
+  --property-accent: #fb923c;
+  --property-light: #fed7aa;
+
+  /* Interactive Colors */
+  --interactive-blue: #0ea5e9;
+  --interactive-teal: #14b8a6;
+  --hover: rgba(14, 165, 233, 0.1);
+  --active: rgba(14, 165, 233, 0.2);
+  --focus: rgba(14, 165, 233, 0.3);
+
+  /* Typography */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Source Sans Pro', sans-serif;
+
+  /* Spacing Scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
 }
 
-#main {
-	margin: 10px 20px;
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
 }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--gray-800);
+  background-color: var(--gray-50);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   HEADER - Editorial Style
+   ============================================ */
+
+header {
+  background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+  padding: var(--space-xl) 0;
+  margin-bottom: var(--space-2xl);
+  box-shadow: var(--shadow-lg);
+  border-bottom: 3px solid var(--violent-primary);
+}
+
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+header h1 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  margin: 0 0 var(--space-md) 0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+header .btn-group {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+header .btn {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+header .btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+header .btn:active,
+header .btn.active {
+  background: var(--violent-primary);
+  border-color: var(--violent-primary);
+}
+
+/* ============================================
+   CONTROLS & FILTERS
+   ============================================ */
+
+.controls-container {
+  max-width: 1400px;
+  margin: 0 auto var(--space-xl) auto;
+  padding: 0 var(--space-lg);
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background: white;
+  padding: var(--space-lg);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  min-width: 200px;
+}
+
+.control-group label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-700);
+}
+
+#yearRangeDisplay {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-left: var(--space-sm);
+}
+
+#yearRangeSlider svg .brush .selection {
+  fill: var(--interactive-blue);
+  fill-opacity: 0.2;
+  stroke: var(--interactive-blue);
+  stroke-width: 2px;
+}
+
+#yearRangeSlider svg .brush .handle {
+  fill: var(--interactive-blue);
+  stroke: white;
+  stroke-width: 2px;
+  cursor: ew-resize;
+}
+
+#yearRangeSlider svg .brush .handle--w,
+#yearRangeSlider svg .brush .handle--e {
+  width: 8px;
+  height: 20px;
+}
+
+#yearRangeSlider svg .axis {
+  font-family: var(--font-body);
+}
+
+#yearRangeSlider svg .axis text {
+  font-size: 11px;
+  fill: var(--gray-600);
+}
+
+#yearRangeSlider svg .axis path,
+#yearRangeSlider svg .axis line {
+  stroke: var(--gray-400);
+}
+
+.state-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  max-width: 600px;
+}
+
+.state-filter-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.state-filter-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.state-filter-item label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  cursor: pointer;
+  color: var(--gray-700);
+  margin: 0;
+}
+
+label[for="crimeDropdown"] {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-700);
+}
+
+#crimeDropdown {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid var(--gray-300);
+  border-radius: 4px;
+  background: white;
+  color: var(--gray-800);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  min-width: 180px;
+}
+
+#crimeDropdown:hover {
+  border-color: var(--interactive-blue);
+  box-shadow: var(--shadow-sm);
+}
+
+#crimeDropdown:focus {
+  outline: none;
+  border-color: var(--interactive-blue);
+  box-shadow: 0 0 0 3px var(--focus);
+}
+
+/* ============================================
+   CHART CONTAINERS
+   ============================================ */
+
+.chart-section {
+  max-width: 1400px;
+  margin: 0 auto var(--space-2xl) auto;
+  padding: 0 var(--space-lg);
+}
+
+.chart-wrapper {
+  background: white;
+  border-radius: 8px;
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-xl);
+  transition: box-shadow var(--transition-base);
+}
+
+.chart-wrapper:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+#scatter,
+#bar-scatter,
+#line,
+#bar {
+  margin-bottom: var(--space-xl);
+}
+
+/* ============================================
+   DETAIL PANEL (Drill-down)
+   ============================================ */
+
+.detail-panel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background: white;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transition: right var(--transition-slow);
+  overflow-y: auto;
+  padding: var(--space-xl);
+}
+
+.detail-panel.active {
+  right: 0;
+}
+
+.detail-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.detail-panel h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.detail-panel-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--gray-500);
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all var(--transition-base);
+}
+
+.detail-panel-close:hover {
+  background: var(--gray-100);
+  color: var(--gray-800);
+}
+
+.detail-panel-content {
+  font-family: var(--font-body);
+  color: var(--gray-700);
+}
+
+.detail-stat {
+  margin-bottom: var(--space-md);
+  padding: var(--space-md);
+  background: var(--gray-50);
+  border-radius: 4px;
+}
+
+.detail-stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-500);
+  margin-bottom: var(--space-xs);
+}
+
+.detail-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+/* ============================================
+   SELECTION SUMMARY PANEL
+   ============================================ */
+
+.selection-summary {
+  position: fixed;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gray-900);
+  color: white;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: 8px;
+  box-shadow: var(--shadow-xl);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+  z-index: 999;
+}
+
+.selection-summary.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
 
 .hovered {
-	opacity: 1;
-	fill: antiquewhite;
+  opacity: 1;
+  fill: antiquewhite;
 }
 
 .selected {
-	opacity: 1;
-	stroke: black;
-	stroke-width: 1px;
+  opacity: 1;
+  stroke: var(--interactive-blue);
+  stroke-width: 2px;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.75rem;
+  }
+
+  .controls-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #crimeDropdown {
+    width: 100%;
+  }
+
+  .detail-panel {
+    width: 100%;
+    right: -100%;
+  }
+
+  .chart-wrapper {
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: var(--space-md) 0;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .chart-wrapper {
+    padding: var(--space-sm);
+  }
+}
+
+/* ============================================
+   LEGACY COMPATIBILITY
+   ============================================ */
+
+#main {
+  margin: 10px 20px;
+}
+
+.sig {
+  text-align: center;
+  margin: var(--space-xl) 0;
+  color: var(--gray-500);
+  font-size: 0.875rem;
+}
+
+.sig a {
+  color: var(--gray-600);
+  text-decoration: none;
+}
+
+.sig a:hover {
+  color: var(--interactive-blue);
+  text-decoration: underline;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--gray-200);
+  margin: var(--space-2xl) 0;
 }

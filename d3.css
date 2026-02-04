@@ -1,104 +1,290 @@
+/* ============================================
+   D3-SPECIFIC STYLES
+   ============================================ */
+
+/* Line Chart Styles */
 .line {
-	fill: none;
-	stroke: #ffab00;
-	stroke-width: 3;
+  fill: none;
+  stroke-width: 3;
+  transition: stroke-width var(--transition-base);
+}
+
+.line:hover {
+  stroke-width: 4;
 }
 
 .overlay {
-	fill: none;
-	pointer-events: all;
+  fill: none;
+  pointer-events: all;
 }
 
-/* Style the dots by assigning a fill and stroke */
+/* Dot/Point Styles */
 .dot {
-	fill: #ffab00;
-	stroke: #fff;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.dot:hover {
+  r: 8;
 }
 
 .focus circle {
-	fill: none;
-	stroke: steelblue;
+  fill: none;
+  stroke: var(--interactive-blue);
+  stroke-width: 2px;
 }
 
+/* Tooltip Styles */
 .d3-tip {
-	line-height: 1;
-	padding: 12px;
-	background: rgba(43, 43, 43, 0.8);
-	color: #fff;
-	border-radius: 2px;
-	font-size: 20px;
+  line-height: 1.5;
+  padding: var(--space-md);
+  background: rgba(23, 23, 23, 0.95);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  box-shadow: var(--shadow-xl);
+  pointer-events: none;
+  max-width: 300px;
+  z-index: 1000;
+}
+
+.d3-tip strong {
+  color: var(--property-accent);
+  font-weight: 600;
+}
+
+.d3-tip .tip-header {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: var(--space-xs);
+}
+
+.d3-tip .tip-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-xs);
+  gap: var(--space-md);
+}
+
+.d3-tip .tip-label {
+  color: var(--gray-300);
+  font-weight: 400;
+}
+
+.d3-tip .tip-value {
+  color: white;
+  font-weight: 600;
 }
 
 /* Style northward tooltips specifically */
 .d3-tip.n:after {
-	margin: -10px 0 0 0;
-	top: 100%;
-	left: 0;
+  margin: -10px 0 0 0;
+  top: 100%;
+  left: 0;
 }
 
+/* Slider Styles */
 #t {
-	display: table;
+  display: table;
+  width: 100%;
+  margin: var(--space-lg) 0;
 }
 
 #t-Year {
-	display: table-cell;
-	vertical-align: middle;
+  display: table-cell;
+  vertical-align: middle;
+  padding-right: var(--space-md);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gray-700);
 }
 
 #slider-year {
-	display: table-cell;
-	vertical-align: middle;
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
 }
 
+/* Map Styles */
 .counties {
-	fill: none;
-	stroke: rgb(90, 88, 88);
-	stroke-linejoin: round;
+  fill: none;
+  stroke: var(--gray-400);
+  stroke-linejoin: round;
+  transition: stroke var(--transition-base);
 }
+
 .states {
-	fill: none;
-	stroke: rgb(90, 88, 88);
-	stroke-linejoin: round;
-}
-/* define CSS rules here */
-.body {
-	background-color: #ffffff;
-	font: 11px sans-serif;
+  fill: none;
+  stroke: var(--gray-600);
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+  transition: all var(--transition-base);
+  cursor: pointer;
 }
 
+.states:hover {
+  stroke: var(--gray-900);
+  stroke-width: 2;
+}
+
+.states.selected {
+  stroke: var(--interactive-blue);
+  stroke-width: 3;
+}
+
+/* Legend Styles */
 .legend {
-	left: 20px;
-	position: absolute;
-	top: 30px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
 }
 
+.legend text {
+  fill: var(--gray-700);
+  font-weight: 400;
+}
+
+.legend .caption {
+  font-weight: 600;
+  font-size: 1rem;
+  fill: var(--gray-900);
+}
+
+/* Chart Title Styles */
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  fill: var(--gray-900);
+  font-size: 1.5rem;
+}
+
+.axis-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  fill: var(--gray-700);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Axis Styles */
+.axis {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: var(--gray-300);
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  fill: var(--gray-600);
+  font-size: 0.75rem;
+}
+
+/* Brush Styles */
+.brush .selection {
+  fill: var(--interactive-blue);
+  fill-opacity: 0.1;
+  stroke: var(--interactive-blue);
+  stroke-width: 2px;
+  stroke-dasharray: 5, 5;
+}
+
+.brush .handle {
+  fill: var(--interactive-blue);
+  stroke: white;
+  stroke-width: 2px;
+}
+
+/* Bar Chart Styles */
+.myBar {
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.myBar:hover {
+  opacity: 0.8;
+  filter: brightness(1.1);
+}
+
+/* Circle Styles */
+.myCircles {
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.myCircles:hover {
+  stroke: var(--gray-900);
+  stroke-width: 2px;
+}
+
+.myCircles.selected {
+  stroke: var(--interactive-blue);
+  stroke-width: 3px;
+}
+
+/* Tooltip (legacy) */
 .tooltip {
-	background: lightsteelblue;
-	border: 0;
-	border-radius: 3px;
-	font: 12px sans-serif;
-	height: auto;
-	padding: 5px;
-	pointer-events: none;
-	position: absolute;
-	text-align: left;
-	width: auto;
-}
-body {
-	font-family: "Open Sans";
-}
-
-#main {
-	margin: 10px 20px;
+  background: rgba(23, 23, 23, 0.95);
+  border: 0;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  height: auto;
+  padding: var(--space-md);
+  pointer-events: none;
+  position: absolute;
+  text-align: left;
+  width: auto;
+  color: white;
+  box-shadow: var(--shadow-xl);
+  z-index: 1000;
 }
 
-.hovered {
-	opacity: 1;
-	fill: antiquewhite;
+/* Animation Classes */
+.animate-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawPath 2s ease-in-out forwards;
 }
 
-.selected {
-	opacity: 1;
-	stroke: black;
-	stroke-width: 1px;
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.fade-in-element {
+  opacity: 0;
+  animation: fadeInElement 0.5s ease-in forwards;
+}
+
+@keyframes fadeInElement {
+  to {
+    opacity: 1;
+  }
+}
+
+.stagger-animation {
+  opacity: 0;
+  transform: scale(0);
+  animation: staggerIn 0.3s ease-out forwards;
+}
+
+@keyframes staggerIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
